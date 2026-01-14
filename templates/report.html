@@ -1,0 +1,25 @@
+<link rel="stylesheet" href="/static/style.css">
+
+<div class="container">
+<h2>Financial Report</h2>
+<table>
+<tr>
+<th>Account</th>
+<th>Total</th>
+</tr>
+{% for r in report %}
+<tr>
+<td>{{ r.account_name }}</td>
+<td>{{ r.total }}</td>
+</tr>
+{% endfor %}
+</table>
+<a href="/">Back</a>
+</div>
+<h3>Update Transaction</h3>
+<form method="post" action="/update_transaction">
+    Transaction ID: <input name="txn_id">
+    New Amount: <input name="amount">
+    <button>Update</button>
+</form>
+

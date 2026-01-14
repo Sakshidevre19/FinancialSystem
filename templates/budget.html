@@ -1,0 +1,25 @@
+<link rel="stylesheet" href="/static/style.css">
+
+<div class="container">
+<h2>Add Budget</h2>
+<form method="post" action="/add_budget">
+    <input name="account_id" placeholder="Account ID">
+    <input name="year" placeholder="Year">
+    <input name="amount" placeholder="Budget Amount">
+    <button>Add Budget</button>
+</form>
+
+<h2>Budget vs Actual</h2>
+<table>
+<tr><th>Account</th><th>Budget</th><th>Actual</th></tr>
+{% for b in budgets %}
+<tr>
+<td>{{b.account_name}}</td>
+<td>{{b.budget}}</td>
+<td>{{b.actual}}</td>
+</tr>
+{% endfor %}
+</table>
+
+<a href="/">Back</a>
+</div>

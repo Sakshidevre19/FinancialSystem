@@ -1,0 +1,29 @@
+<link rel="stylesheet" href="/static/style.css">
+
+<div class="container">
+<h2>Manage Accounts</h2>
+
+<table>
+<tr>
+<th>ID</th><th>Name</th><th>Type</th><th>Update</th><th>Delete</th>
+</tr>
+
+{% for a in accounts %}
+<tr>
+<form method="post" action="/update_account">
+<td>{{a.account_id}} <input type="hidden" name="account_id" value="{{a.account_id}}"></td>
+<td><input name="name" value="{{a.account_name}}"></td>
+<td><input name="type" value="{{a.type}}"></td>
+<td><button>Update</button></td>
+</form>
+<td>
+<form method="post" action="/delete_account/{{a.account_id}}">
+<button style="background:red">Delete</button>
+</form>
+</td>
+</tr>
+{% endfor %}
+</table>
+
+<a href="/">Back to Dashboard</a>
+</div>
